@@ -2,7 +2,7 @@ const http = require('http');
 const WebSocket = require('ws');
 
 // Use the PORT environment variable provided by Render
-const port = process.env.PORT || 8081;
+const port = process.env.PORT || 8080;
 
 const server = http.createServer();
 const wss = new WebSocket.Server({ server });
