@@ -1,10 +1,10 @@
 const http = require('http');
 const WebSocket = require('ws');
 
-// Create an HTTP server
-const server = http.createServer();
+// Use the PORT environment variable provided by Render
+const port = process.env.PORT || 8081;
 
-// Create a WebSocket server on top of the HTTP server
+const server = http.createServer();
 const wss = new WebSocket.Server({ server });
 
 wss.on('connection', ws => {
@@ -20,7 +20,6 @@ wss.on('connection', ws => {
   });
 });
 
-// Start the server on port 8081
-server.listen(8081, () => {
-  console.log('WebSocket server is running on port 8081');
+server.listen(port, () => {
+  console.log(`WebSocket server is running on port ${port}`);
 });
